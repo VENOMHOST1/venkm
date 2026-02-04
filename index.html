@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>مساعد ذكي</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar">
+        <div class="brand">
+          <span class="logo">◎</span>
+          <div>
+            <h1>مساعدك الذكي</h1>
+            <p>واجهة شبيهة بـ GPT</p>
+          </div>
+        </div>
+        <div class="sidebar-card">
+          <h2>النموذج</h2>
+          <p id="modelName">openai/gpt-5-mini</p>
+        </div>
+        <div class="sidebar-card">
+          <h2>الإعدادات</h2>
+          <form id="settingsForm">
+            <label for="apiUrl">عنوان الواجهة</label>
+            <input
+              type="text"
+              id="apiUrl"
+              name="apiUrl"
+              placeholder="http://api.gptnix.online"
+            />
+
+            <label for="model">النموذج</label>
+            <input
+              type="text"
+              id="model"
+              name="model"
+              placeholder="openai/gpt-5-mini"
+            />
+
+            <label for="apiKey">مفتاح API</label>
+            <input
+              type="password"
+              id="apiKey"
+              name="apiKey"
+              placeholder="sk-..."
+            />
+            <button type="submit" class="ghost full">حفظ الإعدادات</button>
+          </form>
+        </div>
+        <div class="sidebar-card">
+          <h2>نصائح سريعة</h2>
+          <ul>
+            <li>اسأل بالعربية أو الإنجليزية.</li>
+            <li>جرّب أسئلة طويلة أو قصيرة.</li>
+            <li>اضغط Enter للإرسال.</li>
+          </ul>
+        </div>
+      </aside>
+
+      <main class="chat">
+        <header class="chat-header">
+          <div>
+            <h2>مرحبا 👋</h2>
+            <p>ابدأ محادثة جديدة الآن.</p>
+          </div>
+          <button class="ghost" id="clearChat">مسح المحادثة</button>
+        </header>
+
+        <section class="messages" id="messages">
+          <div class="message assistant">
+            <div class="avatar">AI</div>
+            <div class="bubble">
+              مرحبًا! أنا مساعدك الذكي. كيف أقدر أساعدك اليوم؟
+            </div>
+          </div>
+        </section>
+
+        <form class="composer" id="composer">
+          <textarea
+            id="prompt"
+            rows="1"
+            placeholder="اكتب رسالتك هنا..."
+            aria-label="اكتب رسالتك"
+          ></textarea>
+          <button type="submit" id="sendBtn">إرسال</button>
+        </form>
+        <p class="status" id="status"></p>
+      </main>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
